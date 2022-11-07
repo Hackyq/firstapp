@@ -1,3 +1,4 @@
+import 'package:firstapp/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -36,13 +37,19 @@ class _SplashState extends State<Splash> {
                     ),
                   ),
                   const SizedBox(
-                    height: 100,
+                    height: 70,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0),
@@ -56,7 +63,7 @@ class _SplashState extends State<Splash> {
                           style: TextStyle(
                             color: Color(0xff324068),
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -75,7 +82,7 @@ class _SplashState extends State<Splash> {
                           style: TextStyle(
                             color: Color(0xff324068),
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),

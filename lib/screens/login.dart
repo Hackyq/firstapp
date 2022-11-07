@@ -1,3 +1,4 @@
+import 'package:firstapp/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -34,16 +35,16 @@ class _LoginState extends State<Login> {
                       const Text(
                         'hey \nlogIn here',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 40,
                       ),
                       buildEmail(),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       buildPassword(),
                       const SizedBox(
@@ -51,7 +52,7 @@ class _LoginState extends State<Login> {
                       ),
                       buildForgotpwd(),
                       const SizedBox(
-                        height: 10,
+                        height: 40,
                       ),
                       buildLoginbtn(),
                       Row(
@@ -68,7 +69,7 @@ class _LoginState extends State<Login> {
                             )),
                             Text(
                               'or',
-                              style: TextStyle(fontSize: 20),
+                              style: TextStyle(fontSize: 15),
                             ),
                             Expanded(
                                 child: Divider(
@@ -80,18 +81,19 @@ class _LoginState extends State<Login> {
                             )),
                           ]),
                       buildRegisterbtn(),
+                    
                     ]),
               )
             ])));
+  
   }
-}
-
+  
 Widget buildEmail() {
   return TextFormField(
     decoration: const InputDecoration(
       prefixIcon: Icon(
         Icons.person,
-        size: 20,
+        size: 15,
         color: Colors.black,
       ),
       hintText: 'Username',
@@ -105,7 +107,7 @@ Widget buildPassword() {
     decoration: const InputDecoration(
       prefixIcon: Icon(
         Icons.lock,
-        size: 20,
+        size: 15,
         color: Colors.black,
       ),
       hintText: 'password',
@@ -120,17 +122,25 @@ Widget buildForgotpwd() {
         style: TextStyle(
           color: Color(0xff101E46),
           fontWeight: FontWeight.w500,
-          fontSize: 18,
+          fontSize: 10,
         )),
   );
 }
 
-Widget buildLoginbtn() {
+ Widget buildLoginbtn() {
   return Container(
     padding: const EdgeInsets.symmetric(vertical: 10),
     width: double.infinity,
     child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+           Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>  Dashboard()
+                                
+                                ),
+                          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 50),
@@ -139,8 +149,8 @@ Widget buildLoginbtn() {
           'Login',
           style: TextStyle(
               color: Color(0xff324068),
-              fontSize: 18,
-              fontWeight: FontWeight.bold),
+              fontSize: 15,
+              fontWeight: FontWeight.w500),
         )),
   );
 }
@@ -159,8 +169,9 @@ Widget buildRegisterbtn() {
           'Register',
           style: TextStyle(
               color: Color(0xff324068),
-              fontSize: 18,
-              fontWeight: FontWeight.bold),
+              fontSize: 15,
+              fontWeight: FontWeight.w500),
         )),
   );
+}
 }

@@ -7,8 +7,9 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xffD2E0EC),
+        backgroundColor: Color(0xffD3d3d3),
         appBar: AppBar(
+          shadowColor: Colors.white10,
           actions: [
             IconButton(
               icon: const Icon(
@@ -19,7 +20,7 @@ class Dashboard extends StatelessWidget {
               onPressed: () {},
             ),
           ],
-          backgroundColor: const Color(0xffD2E0EC),
+          backgroundColor: const Color(0xffD3d3d3),
           leading: IconButton(
             color: const Color(0xff666666),
             icon: const Icon(Icons.menu_outlined),
@@ -30,8 +31,8 @@ class Dashboard extends StatelessWidget {
             'SRMS',
             style: TextStyle(
               color: Color(0xff666666),
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
@@ -40,44 +41,17 @@ class Dashboard extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      const CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 50,
-                        child: Text(
-                          'NK',
-                          style: TextStyle(fontSize: 25, color: Colors.black),
-                        ), //Text
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const <Widget>[
-                            Text(
-                              "Nii KpaKpo",
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            Text('Host')
-                          ]),
-                    ],
-                  ),
+                  builduserDetails(),
                   const SizedBox(
-                    height: 25,
+                    height: 5,
                   ),
                   Expanded(
                       child: GridView(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 25,
-                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 30,
+                            mainAxisSpacing: 0,
                           ),
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
@@ -93,14 +67,65 @@ class Dashboard extends StatelessWidget {
   }
 }
 
+Widget builduserDetails() {
+  return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+              style: BorderStyle.solid, width: 1, color: Colors.blueGrey,)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          const CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 30,
+            child: Text(
+              'NK',
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            ), //Text
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+          Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const <Widget>[
+                Text(
+                  "Nii KpaKpo",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Text(
+                  'Host',
+                  style: TextStyle(fontSize: 10),
+                )
+              ]),
+        ],
+      ));
+}
+
 Widget buildExams() {
   return Container(
+    padding: const EdgeInsets.all(15),
+    margin: EdgeInsets.symmetric(vertical: 20),
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromARGB(49, 101, 103, 103),
+          offset: Offset(
+            5.0,
+            5.0,
+          ),
+          blurRadius: 10.0,
+          spreadRadius: 2.0,
+        ), //BoxShadow
+      ],
+      borderRadius: BorderRadius.circular(10),
       color: const Color(0xffF9FAFA),
     ),
-    padding: const EdgeInsets.all(10),
-    margin: const EdgeInsets.symmetric(vertical: 10),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,11 +133,11 @@ Widget buildExams() {
         Icon(
           Icons.library_books_rounded,
           color: Color(0xff686E7A),
-          size: 40.0,
+          size: 30.0,
         ),
         Text(
           "Exams",
-          style: TextStyle(color: Color(0xff686E7A), fontSize: 20),
+          style: TextStyle(color: Color(0xff686E7A), fontSize: 15),
         ),
       ],
     ),
@@ -122,23 +147,34 @@ Widget buildExams() {
 Widget buildPay() {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromARGB(49, 101, 103, 103),
+          offset: Offset(
+            5.0,
+            5.0,
+          ),
+          blurRadius: 10.0,
+          spreadRadius: 2.0,
+        ), //BoxShadow
+      ],
+      borderRadius: BorderRadius.circular(10),
       color: const Color(0xffF9FAFA),
     ),
-    padding: const EdgeInsets.all(10),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    padding: const EdgeInsets.all(15),
+    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const <Widget>[
         Icon(
-          Icons.money,
+          Icons.payment,
           color: Color(0xff3ABD25),
-          size: 40.0,
+          size: 30.0,
         ),
         Text(
           "Pay",
-          style: TextStyle(color: Color(0xff686E7A), fontSize: 20),
+          style: TextStyle(color: Color(0xff686E7A), fontSize: 15),
         ),
       ],
     ),
@@ -148,11 +184,22 @@ Widget buildPay() {
 Widget buildScholarships() {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromARGB(49, 101, 103, 103),
+          offset: Offset(
+            5.0,
+            5.0,
+          ),
+          blurRadius: 10.0,
+          spreadRadius: 2.0,
+        ), //BoxShadow
+      ],
+      borderRadius: BorderRadius.circular(10),
       color: const Color(0xffF9FAFA),
     ),
-    padding: const EdgeInsets.all(10),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    padding: const EdgeInsets.all(15),
+    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,11 +207,11 @@ Widget buildScholarships() {
         Icon(
           Icons.school,
           color: Color(0xffB40F0F),
-          size: 40.0,
+          size: 30.0,
         ),
         Text(
           "Scholarships",
-          style: TextStyle(color: Color(0xff686E7A), fontSize: 20),
+          style: TextStyle(color: Color(0xff686E7A), fontSize: 15),
         ),
       ],
     ),
@@ -174,11 +221,22 @@ Widget buildScholarships() {
 Widget buildExemptions() {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromARGB(49, 101, 103, 103),
+          offset: Offset(
+            5.0,
+            5.0,
+          ),
+          blurRadius: 10.0,
+          spreadRadius: 2.0,
+        ), //BoxShadow
+      ],
+      borderRadius: BorderRadius.circular(10),
       color: const Color(0xffF9FAFA),
     ),
-    padding: const EdgeInsets.all(10),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    padding: const EdgeInsets.all(15),
+    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,11 +244,11 @@ Widget buildExemptions() {
         Icon(
           Icons.keyboard_double_arrow_up,
           color: Color(0xffB8BB29),
-          size: 40.0,
+          size: 30.0,
         ),
         Text(
           "Exemptions",
-          style: TextStyle(color: Color(0xff686E7A), fontSize: 20),
+          style: TextStyle(color: Color(0xff686E7A), fontSize: 15),
         ),
       ],
     ),
@@ -200,11 +258,22 @@ Widget buildExemptions() {
 Widget buildFollowApp() {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromARGB(49, 101, 103, 103),
+          offset: Offset(
+            5.0,
+            5.0,
+          ),
+          blurRadius: 10.0,
+          spreadRadius: 2.0,
+        ), //BoxShadow
+      ],
+      borderRadius: BorderRadius.circular(10),
       color: const Color(0xffF9FAFA),
     ),
-    padding: const EdgeInsets.all(10),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    padding: const EdgeInsets.all(15),
+    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -212,11 +281,11 @@ Widget buildFollowApp() {
         Icon(
           Icons.add_to_home_screen,
           color: Color(0xff7967E7),
-          size: 40.0,
+          size: 30.0,
         ),
         Text(
           "Follow Application",
-          style: TextStyle(color: Color(0xff686E7A), fontSize: 20),
+          style: TextStyle(color: Color(0xff686E7A), fontSize: 15),
         ),
       ],
     ),
@@ -226,11 +295,22 @@ Widget buildFollowApp() {
 Widget buildEventPlan() {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      boxShadow: const [
+        BoxShadow(
+          color: Color.fromARGB(49, 101, 103, 103),
+          offset: Offset(
+            5.0,
+            5.0,
+          ),
+          blurRadius: 10.0,
+          spreadRadius: 2.0,
+        ), //BoxShadow
+      ],
+      borderRadius: BorderRadius.circular(10),
       color: const Color(0xffF9FAFA),
     ),
-    padding: const EdgeInsets.all(10),
-    margin: const EdgeInsets.symmetric(vertical: 10),
+    padding: const EdgeInsets.all(15),
+    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,11 +318,11 @@ Widget buildEventPlan() {
         Icon(
           Icons.edit_calendar,
           color: Color(0xff2E4490),
-          size: 40.0,
+          size: 30.0,
         ),
         Text(
           "Event Planing",
-          style: TextStyle(color: Color(0xff686E7A), fontSize: 20),
+          style: TextStyle(color: Color(0xff686E7A), fontSize: 15),
         ),
       ],
     ),
