@@ -9,9 +9,12 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
         backgroundColor: Color(0xffD3d3d3),
         appBar: AppBar(
+          titleSpacing: 10,
+          leadingWidth: 80,
           shadowColor: Colors.white10,
           actions: [
             IconButton(
+              padding: EdgeInsets.symmetric(horizontal: 25),
               icon: const Icon(
                 Icons.notifications,
                 color: Color(0xffF26D71),
@@ -37,7 +40,7 @@ class Dashboard extends StatelessWidget {
           ),
         ),
         body: Container(
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
@@ -47,10 +50,11 @@ class Dashboard extends StatelessWidget {
                   ),
                   Expanded(
                       child: GridView(
+                        padding: EdgeInsets.symmetric(vertical: 10),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 30,
+                            crossAxisSpacing: 10,
                             mainAxisSpacing: 0,
                           ),
                           shrinkWrap: true,
@@ -73,7 +77,10 @@ Widget builduserDetails() {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-              style: BorderStyle.solid, width: 1, color: Colors.blueGrey,)),
+            style: BorderStyle.solid,
+            width: 1,
+            color: Colors.blueGrey,
+          )),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
