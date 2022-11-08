@@ -1,3 +1,4 @@
+import 'package:firstapp/widgets/dashboard_card.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -7,7 +8,7 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffD3d3d3),
+      backgroundColor: Color(0xffffffff),
       appBar: AppBar(
         titleSpacing: 10,
         leadingWidth: 80,
@@ -23,7 +24,7 @@ class Dashboard extends StatelessWidget {
             onPressed: () {},
           ),
         ],
-        backgroundColor: const Color(0xffD3d3d3),
+        backgroundColor: const Color(0xffffffff),
         leading: IconButton(
           color: const Color(0xff666666),
           icon: const Icon(Icons.menu_outlined),
@@ -40,14 +41,12 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 builduserDetails(),
-                const SizedBox(
-                  height: 0,
-                ),
+                buildslider(),
                 Expanded(
                     child: GridView(
                         padding: EdgeInsets.symmetric(vertical: 10),
@@ -55,12 +54,15 @@ class Dashboard extends StatelessWidget {
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           crossAxisSpacing: 10,
-                          mainAxisSpacing: 0,
+                          mainAxisSpacing:10,
+                          mainAxisExtent: 110,
                         ),
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         children: <Widget>[
-                      buildExams(),
+                     DashboardCard(icon:Icons.library_books_rounded, name: "Exam",
+                     
+                     iconColor: Color.fromARGB(255, 12, 223, 223) ,),
                       buildPay(),
                       buildScholarships(),
                       buildExemptions(),
@@ -166,10 +168,25 @@ Widget builduserDetails() {
       ));
 }
 
+Widget buildslider(){
+  return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+           border: Border.all(
+            style: BorderStyle.solid,
+            width: 2,
+            color: Colors.blueGrey,
+          )
+          ),
+         child: Row(
+      ));}
+
 Widget buildExams() {
   return Container(
-    padding: const EdgeInsets.all(15),
-    margin: EdgeInsets.symmetric(vertical: 20),
+   
+    padding: const EdgeInsets.all(10),
+    //margin: EdgeInsets.symmetric(vertical: 20),
     decoration: BoxDecoration(
       boxShadow: const [
         BoxShadow(
@@ -183,7 +200,7 @@ Widget buildExams() {
         ), //BoxShadow
       ],
       borderRadius: BorderRadius.circular(10),
-      color: const Color(0xffF9FAFA),
+      color: Color.fromARGB(255, 12, 223, 223),
     ),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -221,7 +238,7 @@ Widget buildPay() {
       color: const Color(0xffF9FAFA),
     ),
     padding: const EdgeInsets.all(15),
-    margin: const EdgeInsets.symmetric(vertical: 20),
+    
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -258,7 +275,6 @@ Widget buildScholarships() {
       color: const Color(0xffF9FAFA),
     ),
     padding: const EdgeInsets.all(15),
-    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -295,7 +311,6 @@ Widget buildExemptions() {
       color: const Color(0xffF9FAFA),
     ),
     padding: const EdgeInsets.all(15),
-    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -332,7 +347,6 @@ Widget buildFollowApp() {
       color: const Color(0xffF9FAFA),
     ),
     padding: const EdgeInsets.all(15),
-    margin: const EdgeInsets.symmetric(vertical: 20),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -369,7 +383,7 @@ Widget buildEventPlan() {
       color: const Color(0xffF9FAFA),
     ),
     padding: const EdgeInsets.all(15),
-    margin: const EdgeInsets.symmetric(vertical: 20),
+    
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
