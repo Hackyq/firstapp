@@ -40,13 +40,13 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 builduserDetails(),
                 const SizedBox(
-                  height: 5,
+                  height: 0,
                 ),
                 Expanded(
                     child: GridView(
@@ -69,7 +69,7 @@ class Dashboard extends StatelessWidget {
                     ]))
               ])),
       bottomNavigationBar: Container(
-        height: 60,
+        height: 50,
         decoration: const BoxDecoration(
           color: Color(0xffD3d3d3),
           borderRadius: BorderRadius.only(
