@@ -7,67 +7,119 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffD3d3d3),
-        appBar: AppBar(
-          titleSpacing: 10,
-          leadingWidth: 80,
-          shadowColor: Colors.white10,
-          actions: [
-            IconButton(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              icon: const Icon(
-                Icons.notifications,
-                color: Color(0xffF26D71),
-              ),
-              tooltip: 'notification',
-              onPressed: () {},
+      backgroundColor: Color(0xffD3d3d3),
+      appBar: AppBar(
+        titleSpacing: 10,
+        leadingWidth: 80,
+        shadowColor: Colors.white10,
+        actions: [
+          IconButton(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            icon: const Icon(
+              Icons.notifications,
+              color: Color(0xffF26D71),
             ),
-          ],
-          backgroundColor: const Color(0xffD3d3d3),
-          leading: IconButton(
-            color: const Color(0xff666666),
-            icon: const Icon(Icons.menu_outlined),
-            tooltip: 'Menu Icon',
+            tooltip: 'notification',
             onPressed: () {},
           ),
-          title: const Text(
-            'SRMS',
-            style: TextStyle(
-              color: Color(0xff666666),
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-            ),
+        ],
+        backgroundColor: const Color(0xffD3d3d3),
+        leading: IconButton(
+          color: const Color(0xff666666),
+          icon: const Icon(Icons.menu_outlined),
+          tooltip: 'Menu Icon',
+          onPressed: () {},
+        ),
+        title: const Text(
+          'SRMS',
+          style: TextStyle(
+            color: Color(0xff666666),
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
           ),
         ),
-        body: Container(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  builduserDetails(),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Expanded(
-                      child: GridView(
+      ),
+      body: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                builduserDetails(),
+                const SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                    child: GridView(
                         padding: EdgeInsets.symmetric(vertical: 10),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 0,
-                          ),
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          children: <Widget>[
-                        buildExams(),
-                        buildPay(),
-                        buildScholarships(),
-                        buildExemptions(),
-                        buildFollowApp(),
-                        buildEventPlan(),
-                      ]))
-                ])));
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 0,
+                        ),
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: <Widget>[
+                      buildExams(),
+                      buildPay(),
+                      buildScholarships(),
+                      buildExemptions(),
+                      buildFollowApp(),
+                      buildEventPlan(),
+                    ]))
+              ])),
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: const BoxDecoration(
+          color: Color(0xffD3d3d3),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(0),
+            topRight: Radius.circular(0),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {},
+              icon: const Icon(
+                Icons.home_outlined,
+                color: Colors.white,
+                size: 35,
+              ),
+            ),
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {},
+              icon: const Icon(
+                Icons.work_outline_outlined,
+                color: Colors.white,
+                size: 35,
+              ),
+            ),
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {},
+              icon: const Icon(
+                Icons.widgets_outlined,
+                color: Colors.white,
+                size: 35,
+              ),
+            ),
+            IconButton(
+              enableFeedback: false,
+              onPressed: () {},
+              icon: const Icon(
+                Icons.person_outline,
+                color: Colors.white,
+                size: 35,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
